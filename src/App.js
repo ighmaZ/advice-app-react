@@ -16,8 +16,10 @@ import axios from 'axios';
         axios.get("https://api.adviceslip.com/advice")
         .then((response) => {
 
-            const { advice} = response.data.slip;
-            
+            const { advice} = response.data.slip; // destructuring
+
+            this.setState({advice})
+
        console.log(advice);
         })
 
@@ -27,8 +29,15 @@ import axios from 'axios';
     }
 
     render(){
+        const {advice} = this.state;  // destructuring
     return(
-        <h1>app</h1>
+        <div className="app">
+            <div className="card">
+                <h1 className="heading">{advice}</h1>
+            </div>
+
+        </div>
+
     );
 }
 
